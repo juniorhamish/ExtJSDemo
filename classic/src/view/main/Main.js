@@ -15,7 +15,8 @@ Ext.define('ExtJSDemo.view.main.Main', {
 
         'ExtJSDemo.view.main.MainController',
         'ExtJSDemo.view.main.MainModel',
-        'ExtJSDemo.view.main.List'
+        'ExtJSDemo.view.main.List',
+        'KitchenSink.view.binding.TwoWay'
     ],
 
     controller: 'main',
@@ -85,9 +86,9 @@ Ext.define('ExtJSDemo.view.main.Main', {
     }, {
         title: 'Users',
         iconCls: 'fa-user',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        items: [{
+            xtype: 'binding-two-way'
+        }]
     }, {
         title: 'Groups',
         iconCls: 'fa-users',
