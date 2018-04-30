@@ -1,27 +1,20 @@
 Ext.define('KitchenSink.view.binding.Component', {
   extend: 'Ext.panel.Panel',
   alias: 'widget.my-component',
+  controller: 'my_controller',
   config: {
     bar: null
   },
   publishes: ['bar'],
 
+  viewModel: {
+    data: {
+      baz: 'Baz'
+    }
+  },
+
   bind: {
-    title: '{bar}'
-  },
-  applyBar: function (value) {
-    if (value !== this.title) {
-      this.setTitle(value);
-    }
-    Ext.getCmp('davej').setValue(value);
-    return value;
-  },
-  setTitle: function (value) {
-    this.callParent(arguments);
-    if (value !== this.bar) {
-      this.setBar(value);
-    }
-    return value;
+    title: '{baz}'
   },
   items: [{
     xtype: 'textfield',
@@ -30,7 +23,7 @@ Ext.define('KitchenSink.view.binding.Component', {
     labelWidth: 50,
     // The default config for textfield in a bind is "value" (two-way):
     bind: {
-      value: '{bar}'
+      value: '{baz}'
     }
   }]
 });
